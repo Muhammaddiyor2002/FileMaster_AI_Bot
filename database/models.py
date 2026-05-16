@@ -50,7 +50,7 @@ class ConversionHistory(Base):
     input_file_id: Mapped[int] = mapped_column(ForeignKey("file_metadata.id"))
     output_format: Mapped[str] = mapped_column(String(30))
     status: Mapped[str] = mapped_column(String(20), default="queued")
-    details: Mapped[dict] = mapped_column(JSON, default={})
+    details: Mapped[dict] = mapped_column(JSON, default=dict)
 
 
 class CompressionTask(Base):

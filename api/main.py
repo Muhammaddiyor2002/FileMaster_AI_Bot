@@ -55,3 +55,8 @@ async def summary(payload: SummaryRequest):
 @app.post("/translate")
 async def translate(payload: TranslateRequest):
     return {"translation": await ai_service.translate(payload.text, payload.target_lang)}
+
+
+@app.get("/health")
+async def healthcheck():
+    return {"status": "ok", "service": "filemaster-api"}
